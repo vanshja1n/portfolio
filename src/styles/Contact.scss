@@ -1,0 +1,165 @@
+// ─── Contact — Footnotes & Contact ────────────────────────────────────────────
+@import './variables';
+
+.newspaper-contact {
+  padding: clamp(6rem, 15vh, 10rem) $padding-x;
+  border-top: $rule-heavy;
+  border-bottom: $rule-heavy;
+
+  &__layout {
+    max-width: $max-w;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(4rem, 8vw, 8rem);
+    align-items: start;
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 500px;
+  }
+
+  &__headline {
+    font-size: $text-h2;
+    line-height: 1.1;
+    color: $ink-black;
+    text-transform: uppercase;
+
+    .italic {
+      font-family: $font-display;
+      font-style: italic;
+      text-transform: none;
+      color: $accent-burgundy;
+    }
+  }
+
+  &__sub {
+    font-size: 1.1rem;
+    color: $ink-muted;
+    line-height: 1.6;
+    text-align: justify;
+  }
+
+  &__details {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    
+    .editorial-rule--thin {
+      margin: 1rem 0;
+      background: rgba($ink-black, 0.2);
+    }
+  }
+}
+
+// ── Form ──────────────────────────────────────────────────────────────────────
+.newspaper-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+      font-family: $font-mono;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: $ink-muted;
+    }
+
+    input, textarea {
+      background: transparent;
+      border: none;
+      border-bottom: $rule-thin;
+      padding: 0.5rem 0;
+      font-family: $font-body;
+      font-size: 1rem;
+      color: $ink-black;
+      outline: none;
+      transition: border-color 0.3s ease;
+      resize: none;
+
+      &:focus {
+        border-bottom-color: $ink-black;
+      }
+    }
+  }
+}
+
+// ── Button ────────────────────────────────────────────────────────────────────
+.editorial-btn {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  margin-top: 2rem;
+  padding: 0.5rem 0 0.25rem;
+  font-family: $font-mono;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: $ink-black;
+  border-bottom: $rule-heavy;
+  /* 1. Reset all default browser borders */
+  border: none; 
+  /* 2. Apply your custom bottom underline */
+  border-bottom: $rule-heavy;
+  transition: opacity 0.3s ease;
+  background: none;
+  cursor: pointer;
+  min-height: 44px;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+// ── Error ─────────────────────────────────────────────────────────────────────
+.newspaper-form__error {
+  font-family: $font-mono;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $accent-burgundy;
+  margin: 0;
+}
+
+// ── Success ───────────────────────────────────────────────────────────────────
+.newspaper-success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 4rem 0;
+
+  &__title {
+    font-family: $font-display;
+    font-size: 3rem;
+    color: $ink-black;
+  }
+
+  &__sub {
+    font-size: 1.1rem;
+    color: $ink-muted;
+  }
+}

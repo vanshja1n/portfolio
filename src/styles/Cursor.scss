@@ -1,0 +1,20 @@
+// ─── Cursor — Editorial Minimal ───────────────────────────────────────────────
+@import './variables';
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: $accent-rust;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: multiply;
+
+  @media (max-width: 900px) {
+    display: none; // Disable custom cursor on mobile
+  }
+}

@@ -1,0 +1,216 @@
+// ─── Hero — Newspaper Cover ───────────────────────────────────────────────────
+@import './variables';
+
+.newspaper-hero {
+  max-width: $max-w;
+  margin: 0 auto;
+  padding: clamp(8rem, 15vh, 12rem) $padding-x clamp(4rem, 10vh, 6rem);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  border-bottom: $rule-thick;
+
+  // ── Massive Headline ────────────────────────────────────────────────────────
+  &__headline-wrapper {
+    overflow: hidden;
+    padding-bottom: 2rem;
+    border-bottom: $rule-heavy;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__headline {
+    font-size: $text-massive;
+    line-height: 0.8;
+    letter-spacing: -0.05em;
+    color: $ink-black;
+    margin: 0;
+    white-space: nowrap;
+    text-align: center;
+    
+    @media (max-width: 900px) {
+      font-size: clamp(4rem, 15vw, 8rem);
+    }
+
+    @media (max-width: 480px) {
+      white-space: normal;
+      font-size: clamp(2.75rem, 13vw, 4.5rem);
+      line-height: 0.85;
+    }
+  }
+
+  // ── Irregular Grid (3 Columns) ──────────────────────────────────────────────
+  &__grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 0.8fr; // Asymmetric widths
+    gap: 3rem;
+    flex: 1;
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+  }
+
+  // ── Shared Column Styles ──
+  .editorial-rule {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  .editorial-label {
+    font-family: $font-mono;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $ink-muted;
+  }
+
+  .editorial-value {
+    font-family: $font-body;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $ink-black;
+  }
+
+  // ── Left Column (Text) ──────────────────────────────────────────────────────
+  &__col-text {
+    display: flex;
+    flex-direction: column;
+    border-right: $rule-thin;
+    padding-right: 3rem;
+
+    @media (max-width: 900px) {
+      border-right: none;
+      padding-right: 0;
+      border-bottom: $rule-thin;
+      padding-bottom: 3rem;
+    }
+  }
+
+  &__abstract {
+    font-size: clamp(1rem, 1.2vw, 1.15rem);
+    line-height: 1.6;
+    color: $ink-black;
+    margin-bottom: 3rem;
+    text-align: justify;
+    overflow-wrap: break-word;
+  }
+
+  &__dropcap {
+    float: left;
+    font-family: $font-display;
+    font-size: 5rem;
+    line-height: 0.8;
+    padding-top: 0.4rem;
+    padding-right: 0.6rem;
+    color: $accent-burgundy;
+
+    @media (max-width: 480px) {
+      font-size: 3.5rem;
+    }
+  }
+
+  &__meta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: auto;
+  }
+
+  // ── Center Column (Tiny Framed Image) ───────────────────────────────────────
+  &__col-image {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-right: $rule-thin;
+    padding-right: 3rem;
+
+    @media (max-width: 900px) {
+      border-right: none;
+      padding-right: 0;
+      border-bottom: $rule-thin;
+      padding-bottom: 3rem;
+    }
+  }
+
+  &__frame {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.75rem;
+    border: $rule-thin;
+    background: $paper-light;
+    box-shadow: 2px 2px 0 rgba($ink-black, 0.1);
+
+    @media (max-width: 480px) {
+      max-width: 240px;
+    }
+  }
+
+  &__image-mask {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba($ink-black, 0.2);
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__caption {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px dotted rgba($ink-black, 0.3);
+  }
+
+  // ── Right Column (Index) ────────────────────────────────────────────────────
+  &__col-meta {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__index-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    li {
+      font-family: $font-body;
+      font-size: 1rem;
+      color: $ink-black;
+      text-transform: uppercase;
+      display: flex;
+      gap: 1rem;
+
+      span {
+        font-family: $font-mono;
+        color: $accent-burgundy;
+        font-size: 0.85rem;
+      }
+    }
+  }
+
+  &__index-link {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+    color: inherit;
+    text-decoration: none;
+    min-height: 44px;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.65;
+    }
+  }
+}

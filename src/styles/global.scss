@@ -1,0 +1,125 @@
+@import './variables';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: $paper-warm;
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px;
+  // A very subtle radial gradient simulating darkened edges of premium scanned paper
+  background-image: radial-gradient(circle at center, rgba($paper-warm, 1) 30%, rgba($paper-dark, 0.6) 100%);
+  background-attachment: fixed;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: $ink-black;
+  font-family: $font-body;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  
+  // Real paper texture: SVG noise + multiply blend
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.15; // Much more subtle grain
+    mix-blend-mode: multiply;
+    // Finer SVG noise texture for premium paper grain
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  // Custom scrollbar for an editorial feel
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba($ink-black, 0.2);
+  }
+}
+
+// ── Typography Defaults ───────────────────────────────────────────────────────
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-display;
+  font-weight: 400;
+  margin: 0;
+  color: $ink-black;
+}
+
+p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// ── Selection ─────────────────────────────────────────────────────────────────
+::selection {
+  background: $ink-black;
+  color: $paper-warm;
+}
+
+// ── Shared Editorial Components ───────────────────────────────────────────────
+.editorial-label {
+  font-family: $font-mono;
+  font-size: $text-caption;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $ink-muted;
+}
+
+.editorial-value {
+  font-family: $font-body;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: $ink-black;
+}
+
+.newspaper-section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: $max-w;
+  margin: 0 auto clamp(3rem, 6vw, 4rem);
+
+  .editorial-rule {
+    margin: 0;
+  }
+}
+
+.newspaper-section-title {
+  font-family: $font-display;
+  font-size: $text-h3;
+  text-transform: uppercase;
+  color: $ink-black;
+}
+
+.editorial-rule {
+  width: 100%;
+  border-bottom: $rule-thin;
+  margin: 2rem 0;
+}
+
+.editorial-caption {
+  font-family: $font-mono;
+  font-size: $text-caption;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $ink-muted;
+}

@@ -1,0 +1,83 @@
+// ─── Loader — The Newspaper Fold ────────────────────────────────────────────
+@import './variables';
+
+.newspaper-fold-container {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  perspective: 2000px; // Essential for the 3D fold effect
+  pointer-events: none;
+}
+
+.newspaper-fold {
+  width: 50%;
+  height: 100%;
+  background: $paper-warm;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba($ink-black, 0.1);
+  box-shadow: 0 0 50px rgba(0,0,0,0.1) inset; // Adds physical weight to the paper
+
+  // ── Print Content on the outside ──
+  &__content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    white-space: nowrap;
+
+    &--left {
+      right: 2rem;
+      align-items: flex-end;
+    }
+
+    &--right {
+      left: 2rem;
+      align-items: flex-start;
+    }
+  }
+
+  &__masthead {
+    font-family: $font-display;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.9;
+    color: $ink-black;
+  }
+
+  &__issue {
+    font-family: $font-mono;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    color: $accent-burgundy;
+  }
+
+  // ── The Center Crease ──
+  &__crease {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 30px;
+    background: linear-gradient(
+      to right,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,0.05) 50%,
+      rgba(0,0,0,0) 100%
+    );
+  }
+
+  &--left &__crease {
+    right: 0;
+    transform: translateX(50%);
+  }
+
+  &--right &__crease {
+    left: 0;
+    transform: translateX(-50%);
+  }
+}
