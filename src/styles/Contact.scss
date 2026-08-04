@@ -2,9 +2,13 @@
 @import './variables';
 
 .newspaper-contact {
-  padding: clamp(6rem, 15vh, 10rem) $padding-x;
+  padding: clamp(4rem, 10vh, 8rem) $padding-x;
   border-top: $rule-heavy;
   border-bottom: $rule-heavy;
+
+  @media (max-width: 768px) {
+    padding: clamp(3rem, 8vh, 5rem) $padding-x;
+  }
 
   &__layout {
     max-width: $max-w;
@@ -16,7 +20,11 @@
 
     @media (max-width: 900px) {
       grid-template-columns: 1fr;
-      gap: 3rem;
+      gap: clamp(2.5rem, 5vh, 4rem);
+    }
+
+    @media (max-width: 480px) {
+      gap: clamp(2rem, 4vh, 3rem);
     }
   }
 
@@ -33,6 +41,11 @@
     color: $ink-black;
     text-transform: uppercase;
 
+    @media (max-width: 480px) {
+      font-size: clamp(1.8rem, 6vw, 2.2rem);
+      line-height: 1.15;
+    }
+
     .italic {
       font-family: $font-display;
       font-style: italic;
@@ -46,6 +59,12 @@
     color: $ink-muted;
     line-height: 1.6;
     text-align: justify;
+
+    @media (max-width: 480px) {
+      font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+      line-height: 1.7;
+      text-align: left;
+    }
   }
 
   &__details {
@@ -67,6 +86,10 @@
   flex-direction: column;
   gap: 2rem;
 
+  @media (max-width: 480px) {
+    gap: 1.5rem;
+  }
+
   &__row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -74,6 +97,7 @@
 
     @media (max-width: 600px) {
       grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
   }
 
@@ -82,27 +106,41 @@
     flex-direction: column;
     gap: 0.5rem;
 
+    @media (max-width: 480px) {
+      gap: 0.75rem;
+    }
+
     label {
       font-family: $font-mono;
       font-size: 0.75rem;
       text-transform: uppercase;
       color: $ink-muted;
+
+      @media (max-width: 480px) {
+        font-size: 0.7rem;
+      }
     }
 
     input, textarea {
       background: transparent;
       border: none;
-      border-bottom: $rule-thin;
+      border-bottom: 1px solid rgba($ink-black, 0.15);
       padding: 0.5rem 0;
       font-family: $font-body;
       font-size: 1rem;
       color: $ink-black;
       outline: none;
-      transition: border-color 0.3s ease;
+      transition: border-color 0.3s ease, border-bottom-width 0.3s ease;
       resize: none;
 
+      @media (max-width: 480px) {
+        font-size: 1rem;
+        padding: 0.75rem 0;
+      }
+
       &:focus {
-        border-bottom-color: $ink-black;
+        border-bottom-color: rgba($ink-black, 0.4);
+        border-bottom-width: 1px;
       }
     }
   }
@@ -114,23 +152,28 @@
   align-items: center;
   align-self: flex-start;
   margin-top: 2rem;
-  padding: 0.5rem 0 0.25rem;
+  padding: 0.75rem 1rem 0.5rem;
   font-family: $font-mono;
   font-size: 0.85rem;
   text-transform: uppercase;
   color: $ink-black;
-  border-bottom: $rule-heavy;
-  /* 1. Reset all default browser borders */
-  border: none; 
-  /* 2. Apply your custom bottom underline */
-  border-bottom: $rule-heavy;
-  transition: opacity 0.3s ease;
+  border: none;
+  border-bottom: 1px solid rgba($ink-black, 0.25);
+  transition: opacity 0.3s ease, border-color 0.3s ease;
   background: none;
   cursor: pointer;
-  min-height: 44px;
+  min-height: 48px;
+  min-width: 120px;
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+    padding: 1rem 1.25rem 0.75rem;
+    min-height: 52px;
+  }
 
   &:hover {
     opacity: 0.6;
+    border-bottom-color: rgba($ink-black, 0.5);
   }
 }
 

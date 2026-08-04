@@ -61,6 +61,8 @@ function Hero() {
                 src={site.profileImage} 
                 alt="Vansh Jain" 
                 className="newspaper-hero__image"
+                width="300"
+                height="400"
                 initial={{ scale: 1.2, filter: 'blur(10px)' }}
                 animate={{ scale: 1, filter: 'blur(0px)' }}
                 transition={{ duration: 1.8, ease: [0.19, 1, 0.22, 1], delay: 0.3 }}

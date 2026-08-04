@@ -23,9 +23,13 @@ function About() {
             <div className="newspaper-editor-note__photo-mask">
               {/* Secondary photo crop to mimic author portrait */}
               <img 
-                src={about.photo || 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-56ANOOlO_3WhTroS22B09t9zhwV-seeVsjF5o1i9lTpyC1WkcGMurGwZyQEqIF6ZOtjDxnk4lskh3_gWpSUe9XaLFYbmllwGhEvaAr4bpaYx43pbLm5iJNZe6qImx8UB04kPTHHDQDCOrmYlizxkJ9paq4qHgj2gE5LSqbXRzvFRyDP6d2xElonx6AI/s1152/Gemini_Generated_Image_verbw9verbw9verb.png'} 
+                src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-56ANOOlO_3WhTroS22B09t9zhwV-seeVsjF5o1i9lTpyC1WkcGMurGwZyQEqIF6ZOtjDxnk4lskh3_gWpSUe9XaLFYbmllwGhEvaAr4bpaYx43pbLm5iJNZe6qImx8UB04kPTHHDQDCOrmYlizxkJ9paq4qHgj2gE5LSqbXRzvFRyDP6d2xElonx6AI/s1152/Gemini_Generated_Image_verbw9verbw9verb.png' 
                 alt="Author"
                 className="newspaper-editor-note__photo"
+                width="160"
+                height="200"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="newspaper-editor-note__photo-caption">

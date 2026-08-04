@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { navItems, site } from '../data/content';
+import { useWeather } from '../hooks/useWeather';
 import '../styles/Navigation.scss';
 
 interface NavigationProps {
@@ -9,6 +10,7 @@ interface NavigationProps {
 
 function Navigation({ visible }: NavigationProps) {
   const date = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  const weather = useWeather();
   
   return (
     <motion.nav 
@@ -34,10 +36,13 @@ function Navigation({ visible }: NavigationProps) {
           </div>
           
           <div className="newspaper-masthead__meta">
-            <span>Weather: 24°C</span>
-            <div className="newspaper-masthead__divider" />
-            <span>Clear</span>
+            <span>Weather: {weather.loading || weather.error ? '--°C' : `${weather.temperature}°C`} | {weather.loading || weather.error ? '--' : weather.city}</span>
           </div>
+        </div>
+
+        {/* ── Mobile Weather Bar ── */}
+        <div className="newspaper-masthead__mobile-weather">
+          <span>Weather: {weather.loading || weather.error ? '--°C' : `${weather.temperature}°C`} | {weather.loading || weather.error ? '--' : weather.city}</span>
         </div>
 
         {/* ── Main Nav & Title ── */}

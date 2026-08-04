@@ -41,7 +41,7 @@ function Projects() {
                   
                   <div className="newspaper-article__tech-list">
                     <span className="editorial-label">Built With</span>
-                    <p className="editorial-value">{project.tech.join(' • ')}</p>
+                    <p className="editorial-value">{project.tech.join('   •   ')}</p>
                   </div>
                   
                   <div className="newspaper-article__links">
@@ -67,11 +67,14 @@ function Projects() {
                       <motion.img 
                         src={project.image} 
                         alt={project.title}
+                        width="800"
+                        height="500"
                         initial={{ scale: 1.05 }}
                         whileInView={{ scale: 1 }}
                         viewport={{ once: true, margin: '-10%' }}
                         transition={{ duration: 1.5, ease: [0.19, 1, 0.22, 1] }}
                         loading="lazy"
+                        decoding="async"
                       />
                     </div>
                   </a>

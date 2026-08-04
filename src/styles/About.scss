@@ -2,8 +2,12 @@
 @import './variables';
 
 .newspaper-editor-note {
-  padding: clamp(6rem, 15vh, 10rem) $padding-x;
+  padding: clamp(4rem, 10vh, 8rem) $padding-x;
   border-bottom: $rule-thick;
+
+  @media (max-width: 768px) {
+    padding: clamp(3rem, 8vh, 5rem) $padding-x;
+  }
 
   &__layout {
     max-width: $max-w;
@@ -20,6 +24,11 @@
 
     @media (max-width: 900px) {
       grid-template-columns: 1fr;
+      gap: clamp(2.5rem, 5vh, 4rem);
+    }
+
+    @media (max-width: 480px) {
+      gap: clamp(2rem, 4vh, 3rem);
     }
   }
 
@@ -76,6 +85,8 @@
 
     @media (max-width: 480px) {
       max-width: none;
+      font-size: clamp(1.6rem, 6vw, 2.2rem);
+      line-height: 1.15;
     }
   }
 
@@ -91,6 +102,12 @@
       break-inside: avoid;
       line-height: 1.6;
       text-align: justify;
+
+      @media (max-width: 480px) {
+        font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+        line-height: 1.7;
+        text-align: left;
+      }
     }
 
     @media (max-width: 768px) {
@@ -107,6 +124,13 @@
     padding-top: 0.2rem;
     padding-right: 0.6rem;
     color: $accent-burgundy;
+
+    @media (max-width: 480px) {
+      font-size: clamp(2.5rem, 8vw, 3.5rem);
+      line-height: 0.85;
+      padding-top: 0.3rem;
+      padding-right: 0.5rem;
+    }
   }
 
   // ── Stats Block ─────────────────────────────────────────────────────────────

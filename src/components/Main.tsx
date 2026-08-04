@@ -52,7 +52,7 @@ function Main() {
               onMouseLeave={() => setTilt({ x: 0, y: 0 })}
               style={{ transform: `perspective(900px) rotateX(${-tilt.x}deg) rotateY(${tilt.y}deg)` }}
             >
-              <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnI191t0Ani99WH29zx9kxYrranvv4RKKAvdkgp1OA1P9Iun-exQIrHeK8juY5oI_PmbrfQBf9A5FBWmxZsPrHxi3qorCFXNSm6jVvV1MqmGK3Kt9Ifox0x77fm9QHIgsqavO16sPmtIDZE4k2wCxGQmdp0IDfnbQZNnsvBBkYC82EQo4yAPHRwIzo_XU/s1090/-png-%C3%97--06-08-2025_04_30_AM.png" alt="Vansh Jain" />
+              <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnI191t0Ani99WH29zx9kxYrranvv4RKKAvdkgp1OA1P9Iun-exQIrHeK8juY5oI_PmbrfQBf9A5FBWmxZsPrHxi3qorCFXNSm6jVvV1MqmGK3Kt9Ifox0x77fm9QHIgsqavO16sPmtIDZE4k2wCxGQmdp0IDfnbQZNnsvBBkYC82EQo4yAPHRwIzo_XU/s1090/-png-%C3%97--06-08-2025_04_30_AM.png" alt="Vansh Jain" width="300" height="400" />
             </div>
           </div>
           <div className="hero-animate badge">Available for software engineering internships • full-stack roles</div>

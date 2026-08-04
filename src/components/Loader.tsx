@@ -8,6 +8,7 @@ interface LoaderProps {
 
 function Loader({ onComplete }: LoaderProps) {
   const [isAnimating, setIsAnimating] = useState(true);
+  const currentYear = new Date().getFullYear();
 
   useEffect(() => {
     // The paper sits there for a brief moment, then folds open
@@ -24,7 +25,7 @@ function Loader({ onComplete }: LoaderProps) {
     visible: { rotateY: 0 },
     hidden: { 
       rotateY: -110, 
-      transition: { duration: 1.4, ease: [0.77, 0, 0.175, 1] } 
+      transition: { duration: 1.4, ease: [0.77, 0, 0.175, 1] as [number, number, number, number] } 
     }
   };
 
@@ -32,7 +33,7 @@ function Loader({ onComplete }: LoaderProps) {
     visible: { rotateY: 0 },
     hidden: { 
       rotateY: 110, 
-      transition: { duration: 1.4, ease: [0.77, 0, 0.175, 1] } 
+      transition: { duration: 1.4, ease: [0.77, 0, 0.175, 1] as [number, number, number, number] } 
     }
   };
 
@@ -65,7 +66,7 @@ function Loader({ onComplete }: LoaderProps) {
           >
             <div className="newspaper-fold__content newspaper-fold__content--right">
               <span className="newspaper-fold__masthead">PORTFOLIO</span>
-              <span className="newspaper-fold__issue">EST. 2024</span>
+              <span className="newspaper-fold__issue">EST. {currentYear}</span>
             </div>
             <div className="newspaper-fold__crease" />
           </motion.div>

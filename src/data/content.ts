@@ -1,8 +1,8 @@
-import mock05 from '../assets/images/mock05.png';
-import mock06 from '../assets/images/mock06.png';
-import mock08 from '../assets/images/mock08.png';
-import mock10 from '../assets/images/mock10.png';
-import profileImg from '../assets/images/profile.png';
+import mock05 from '../assets/images/mock05.webp';
+import mock06 from '../assets/images/mock06.webp';
+import mock08 from '../assets/images/mock08.webp';
+import mock10 from '../assets/images/mock10.webp';
+import profileImg from '../assets/images/profile.webp';
 
 export const PROFILE_IMAGE = profileImg;
 
@@ -55,11 +55,11 @@ export const projects = [
     id: 'invoice',
     number: '02',
     title: 'Invoice & Inventory Management',
-    tagline: 'Simplifying business workflows with a modern invoicing platform.',
+    tagline: 'Modern invoicing. Smarter inventory. Built for growing businesses.',
     image: mock08,
-    description: 'A complete invoice and inventory management application featuring customer management, analytics, PDF generation, multiple invoice templates, and offline local storage.',
-    stack: ['React', 'Vite', 'IndexedDB', 'Tailwind CSS', 'jsPDF'],
-    tech: ['React', 'Vite', 'IndexedDB', 'Tailwind CSS', 'jsPDF'],
+    description: 'A full-stack SaaS platform with secure cloud sync, inventory tracking, customer management, analytics, and professional PDF invoice generation.',
+    stack: ['Node.js', 'Express', 'MongoDB', 'React', 'Tailwind CSS'],
+    tech: ['Node.js', 'Express', 'MongoDB', 'React', 'Tailwind CSS'],
     type: 'Application',
     year: '2024',
     link: 'https://react-invoice-vj.vercel.app/',
