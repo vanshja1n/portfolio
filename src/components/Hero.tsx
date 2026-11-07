@@ -44,8 +44,7 @@ function Hero() {
           <div className="editorial-rule" />
           <p className="newspaper-hero__abstract">
             <span className="newspaper-hero__dropcap">I</span>
-            build fast, thoughtful digital products that combine clean engineering,
-            editorial aesthetics, and intuitive user experiences—from concept to deployment.
+          build thoughtful digital products and trade the markets intraday, combining clean engineering, analytical thinking, and a curiosity for how technology and markets intersect.
           </p>
           <div className="newspaper-hero__meta-group">
             <span className="editorial-label">Est. Read Time</span>
@@ -97,3 +96,4 @@ function Hero() {
 }
 
 export default Hero;
+
