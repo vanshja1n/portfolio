@@ -1,0 +1,256 @@
+// ─── Hero — Newspaper Cover ───────────────────────────────────────────────────
+@import './variables';
+
+.newspaper-hero {
+  max-width: $max-w;
+  margin: 0 auto;
+  padding: clamp(8rem, 15vh, 12rem) $padding-x clamp(4rem, 10vh, 6rem);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  border-bottom: $rule-thick;
+
+  @media (max-width: 768px) {
+    padding: clamp(4rem, 10vh, 6rem) $padding-x clamp(2rem, 6vh, 4rem);
+  }
+
+  // ── Massive Headline ────────────────────────────────────────────────────────
+  &__headline-wrapper {
+    overflow: hidden;
+    padding-bottom: 2rem;
+    border-bottom: $rule-heavy;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__headline {
+    font-size: $text-massive;
+    line-height: 0.8;
+    letter-spacing: -0.04em;
+    color: $ink-black;
+    margin: 0;
+    white-space: nowrap;
+    text-align: center;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    
+    @media (max-width: 900px) {
+      font-size: clamp(3.5rem, 12vw, 7rem);
+    }
+
+    @media (max-width: 480px) {
+      white-space: normal;
+      font-size: clamp(2.5rem, 11vw, 4rem);
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+    }
+
+    // Improve individual character rendering
+    span {
+      display: inline-block;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+      will-change: transform, opacity;
+    }
+  }
+
+  // ── Irregular Grid (3 Columns) ──────────────────────────────────────────────
+  &__grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 0.8fr; // Asymmetric widths
+    gap: 3rem;
+    flex: 1;
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+      gap: clamp(2.5rem, 5vh, 4rem);
+    }
+
+    @media (max-width: 480px) {
+      gap: clamp(2rem, 4vh, 3rem);
+    }
+  }
+
+  // ── Shared Column Styles ──
+  .editorial-rule {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  .editorial-label {
+    font-family: $font-mono;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $ink-muted;
+  }
+
+  .editorial-value {
+    font-family: $font-body;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $ink-black;
+  }
+
+  // ── Left Column (Text) ──────────────────────────────────────────────────────
+  &__col-text {
+    display: flex;
+    flex-direction: column;
+    border-right: $rule-thin;
+    padding-right: 3rem;
+
+    @media (max-width: 900px) {
+      border-right: none;
+      padding-right: 0;
+      border-bottom: $rule-thin;
+      padding-bottom: 3rem;
+    }
+  }
+
+  &__abstract {
+    font-size: clamp(1rem, 1.2vw, 1.15rem);
+    line-height: 1.6;
+    color: $ink-black;
+    margin-bottom: 3rem;
+    text-align: justify;
+    overflow-wrap: break-word;
+
+    @media (max-width: 480px) {
+      font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+      line-height: 1.7;
+      text-align: left;
+    }
+  }
+
+  &__dropcap {
+    float: left;
+    font-family: $font-display;
+    font-size: 5rem;
+    line-height: 0.8;
+    padding-top: 0.4rem;
+    padding-right: 0.6rem;
+    color: $accent-burgundy;
+
+    @media (max-width: 480px) {
+      font-size: clamp(2.5rem, 8vw, 3.5rem);
+      line-height: 0.85;
+      padding-top: 0.3rem;
+      padding-right: 0.5rem;
+    }
+  }
+
+  &__meta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: auto;
+  }
+
+  // ── Center Column (Tiny Framed Image) ───────────────────────────────────────
+  &__col-image {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-right: $rule-thin;
+    padding-right: 3rem;
+
+    @media (max-width: 900px) {
+      border-right: none;
+      padding-right: 0;
+      border-bottom: $rule-thin;
+      padding-bottom: 3rem;
+    }
+  }
+
+  &__frame {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.75rem;
+    border: $rule-thin;
+    background: $paper-light;
+    box-shadow: 2px 2px 0 rgba($ink-black, 0.1);
+
+    @media (max-width: 768px) {
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 480px) {
+      max-width: 240px;
+      padding: 0.6rem;
+    }
+  }
+
+  &__image-mask {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba($ink-black, 0.2);
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__caption {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px dotted rgba($ink-black, 0.3);
+  }
+
+  // ── Right Column (Index) ────────────────────────────────────────────────────
+  &__col-meta {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__index-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    li {
+      font-family: $font-body;
+      font-size: 1rem;
+      color: $ink-black;
+      text-transform: uppercase;
+      display: flex;
+      gap: 1rem;
+
+      span {
+        font-family: $font-mono;
+        color: $accent-burgundy;
+        font-size: 0.85rem;
+      }
+    }
+  }
+
+  &__index-link {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+    color: inherit;
+    text-decoration: none;
+    min-height: 44px;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.65;
+    }
+  }
+}

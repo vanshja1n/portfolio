@@ -1,0 +1,162 @@
+// ─── Skills — Technology & Tools ──────────────────────────────────────────────
+@import './variables';
+
+.newspaper-skills {
+  padding: clamp(4rem, 10vh, 8rem) $padding-x;
+
+  @media (max-width: 768px) {
+    padding: clamp(3rem, 8vh, 5rem) $padding-x;
+  }
+
+  &__layout {
+    max-width: $max-w;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    gap: clamp(4rem, 8vw, 8rem);
+    align-items: start;
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+      gap: clamp(2.5rem, 5vh, 4rem);
+    }
+
+    @media (max-width: 480px) {
+      gap: clamp(2rem, 4vh, 3rem);
+    }
+  }
+
+  // ── Abstract Sidenote ───────────────────────────────────────────────────────
+  &__abstract-col {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: $padding-y;
+
+    @media (max-width: 900px) {
+      position: static;
+    }
+  }
+
+  &__abstract {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: $ink-black;
+    text-align: justify;
+
+    @media (max-width: 480px) {
+      font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+      line-height: 1.7;
+      text-align: left;
+    }
+  }
+
+  .editorial-dropcap {
+    float: left;
+    font-family: $font-display;
+    font-size: 4.5rem;
+    line-height: 0.8;
+    padding-top: 0.2rem;
+    padding-right: 0.6rem;
+    color: $accent-burgundy;
+
+    @media (max-width: 480px) {
+      font-size: clamp(2.5rem, 8vw, 3.5rem);
+      line-height: 0.85;
+      padding-top: 0.3rem;
+      padding-right: 0.5rem;
+    }
+  }
+
+  // ── Grid ────────────────────────────────────────────────────────────────────
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem 3rem;
+
+    @media (max-width: 768px) {
+      gap: 3rem 2rem;
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  &__category {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__cat-title {
+    font-family: $font-display;
+    font-size: 1.75rem;
+    color: $ink-black;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: 480px) {
+      font-size: clamp(1.4rem, 5vw, 1.6rem);
+    }
+  }
+  
+  &__cat-desc {
+    font-size: 0.9rem;
+    color: $ink-muted;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    max-width: 30ch;
+
+    @media (max-width: 480px) {
+      font-size: clamp(0.85rem, 2.5vw, 0.9rem);
+      line-height: 1.6;
+      max-width: 100%;
+    }
+  }
+
+  .editorial-rule--thin {
+    margin: 0 0 1.5rem 0;
+    background: rgba($ink-black, 0.2);
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    @media (max-width: 480px) {
+      gap: 1rem;
+    }
+  }
+
+  &__item {
+    font-family: $font-mono;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: $ink-black;
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 480px) {
+      font-size: clamp(0.75rem, 2.5vw, 0.85rem);
+      padding: 0.25rem 0;
+    }
+    
+    // Add a trailing dotted leader like a table of contents
+    &::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px dotted rgba($ink-black, 0.3);
+      margin: 0 0.5rem;
+      position: relative;
+      top: -0.3rem;
+
+      @media (max-width: 480px) {
+        margin: 0 0.4rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+// ─── Digital Newspaper Variables ──────────────────────────────────────────────
+
+// ── Colors (Physical Ink & Paper) ─────────────────────────────────────────────
+$paper-warm: #F7F6F2;      // Much lighter, premium warm paper
+$paper-light: #FFFFFF;     // Pure white highlights
+$paper-dark: #EAE8E3;      // Very subtle vignette edge
+$ink-black: #111111;       // True black ink
+$charcoal: #2A2A2A;        // Softer dark charcoal for large text
+$ink-muted: #555555;       // Faded ink for metadata and small captions
+$accent-brown: #8B7355;    // Muted brown for subtle editorial lines
+$accent-burgundy: #722F37; // Deep burgundy for drop caps and edition numbers
+
+// ── Typography (Editorial Scale) ──────────────────────────────────────────────
+$font-display: 'DM Serif Display', serif;
+$font-body: 'DM Sans', sans-serif;
+$font-mono: 'Space Mono', monospace; // Used for tiny metadata / issue numbers
+
+// ── Typographic Scale ─────────────────────────────────────────────────────────
+$text-massive: clamp(4rem, 15vw, 16rem); // For breaking grids
+$text-h1: clamp(3.5rem, 8vw, 8rem);
+$text-h2: clamp(2rem, 5vw, 4rem);
+$text-h3: clamp(1.5rem, 3vw, 2.5rem);
+$text-body: clamp(1rem, 1.2vw, 1.15rem);
+$text-caption: clamp(0.7rem, 0.8vw, 0.85rem);
+
+// ── Structural Rules (The Ink Lines) ──────────────────────────────────────────
+$rule-hairline: 1px solid rgba($ink-black, 0.15);
+$rule-thin: 1px solid rgba($ink-black, 0.3);
+$rule-heavy: 2px solid $ink-black;
+$rule-thick: 4px solid $ink-black;
+
+// ── Layout Margins ────────────────────────────────────────────────────────────
+$max-w: 1600px;
+$padding-x: clamp(1.5rem, 5vw, 4rem);
+$padding-y: clamp(4rem, 10vh, 8rem);
+
+// ── Motion (Physical & Paper-like) ────────────────────────────────────────────
+$ease-editorial: cubic-bezier(0.19, 1, 0.22, 1);
+$ease-fold: cubic-bezier(0.77, 0, 0.175, 1);
